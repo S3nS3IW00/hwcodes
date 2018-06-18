@@ -14,9 +14,9 @@ bool oszthato(int szamok[10], int oszto){
 
 void osztas(bool oszthato, int oszto){
     if(oszthato){
-        std::cout << "A számok közt van olyan, szám, ami osztható ezzel: " << oszto << std::endl;
+        std::cout << "A számok közt van olyan szám, ami osztható ezzel: " << oszto << std::endl;
     } else {
-        std::cout << "A számok közt nincs olyan, szám, ami osztható ezzel: " << oszto << std::endl;
+        std::cout << "A számok közt nincs olyan szám, ami osztható ezzel: " << oszto << std::endl;
     }
 }
 
