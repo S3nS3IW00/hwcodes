@@ -55,6 +55,7 @@ class Account : public Person{
   public:
   Account(string name, int age, int id, int amount, int pincode){
     this->amount = amount;
+    this->pincode = pincode;
     owner.setName(name);
     owner.setAge(age);
     owner.setId(id);
@@ -82,26 +83,18 @@ class Account : public Person{
   
 };
 
-bool checkPin(Account a, int pin){
-  if(a.getPincode() == pin){
-    return true;
-  }
-  return false;
-}
-
 int main()
 {
   Person p("Gazsi", 35, 2536);
   Account a(p.getName(), p.getAge(), p.getId(), 50000, 7263);
   std::cout << "Üdvözlöm " << p.getName() << "! Kérem adja meg a PIN kódját!" << std::endl;
   int pincode;
-  int tries = 3;
   std::cin >> pincode;
-  if(!checkPin(a, pincode)){ 
-    tries--;
-    std::cin >> pincode;
+  if(pincode != a.getPincode()){ 
+    std::cout << "Hibás PIN kód! Viszontlátásra!" << std::endl;
+    return 0;
   } else {
-    std::cout << "Üdvözlöm " << p.getName() << "! Kérem adja meg mit szeretne tenni!" << std::endl;
+    std::cout << "Sikeres bejelentkezés! Kérem adja meg mit szeretne tenni!" << std::endl;
     std::cout << "Egyenleg lekérdezés: 1 | Pénz felvétel: 2 | Pénz feltöltés: 3 | Kilépés: 4" << std::endl;
     int menu;
     std::cin >> menu;
