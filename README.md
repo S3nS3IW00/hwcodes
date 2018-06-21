@@ -1,2 +1,2 @@
-# hwcodes
-Házi feladatok
+# Programozás
+Sulis feladatok
