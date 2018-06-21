@@ -1,0 +1,180 @@
+Program felépítése
+
+- Az alap fájl, ami létrejön a main.cpp.
+- Egy dolgot tartalmaz, a main függvényt. (int main(string arg[]){ return 0; })
+- main.cpp a belépési pont, a többi függvényt és osztályt include-oljuk, vagy saját magunk nem a main.cpp-ben megírjuk.
+- A saját függvények külsõ könyvtárban lesznek.
+- A könytárakban általában osztályokat tárolunk. (osztálynév.h, ahol a h a kiterjesztés) Nem tartalmaznak implementációt, csak "neveket"(visszatérési érték, név, paraméter lista). A fájlnévnek ugyanannak kell lennie, mint a .cpp kiterjesztésûnek.
+- A cpp-ben hivatkozunk az osztályra. (Osztálynév::fvgneve(){})
+- Mindig csak a .h kiterjesztésû fájlt include-oljuk, és így elérjük a .cpp fájlt is, mert össze vannak kapcsolva.
+- Rövid 1 funkciós függvényeket kell létrehozni.
+- A paraméter listán egyértelmû elnevezést kell megadni. (Pl.: fvg(string szin))
+- Kerülni kell a hasonló elnevezéseket.
+
+- A .h mellé mindig generálunk UML diagrammot
+- Az UML kis tábla, ami 3 részre bontódik. Felül egy egysoros, ahol lesz a név(osztály neve). Középen lesznek a tagváltozók(mezõk)(Pl.: - szam : int; #nev : string; +ID : int). Alulra a függvények és metódusok kerülnek(Pl.: +getSzam() : int).
+- Jelölések: -: private; #: protected; +: public
+
+--------------------------------
+|          Név                 |
+--------------------------------
+|-/+/#változó : adattípus      |
+--------------------------------
+|-/+/# függvény : függvénytípus|
+--------------------------------
+
+Példa feladat:
+
+- UML diagram:
+----------------------------                   -----------------------------
+|        Evoeszkoz         |                   |          Kanal            |
+----------------------------                   -----------------------------
+|-meret : int              |                   |-melyseg : int             |
+|- anyag : string          |                   -----------------------------
+---------------------------- <|----------------|+Kanal(int, string, int)   |
+|+Evoeszkoz(int, string)   |                   |+get/set                   |
+|+get/set                  |                   |+toString() : void         |
+|+toString() : void        |                   -----------------------------
+---------------------------- 
+
+- Kód:
+
+#include <stdio.h>
+
+#include <iostream>
+
+
+using namespace std;
+
+
+class Evoeszkoz{
+ 
+ 
+  
+ int meret;
+  
+ string anyag;
+
+  
+  
+ public:
+  
+ Evoeszkoz(int meret, string anyag){
+    
+  this->meret = meret;
+    
+  this->anyag = anyag;
+  
+ }
+
+  
+  
+ int getMeret(){
+    
+  return meret;
+  
+ }
+  
+  
+
+ string getAnyag(){
+    
+  return anyag;
+  
+ }
+
+  
+  
+ void setMeret(int meret){
+    
+  this->meret = meret;
+  
+ }
+  
+  
+
+ void setAnyag(string anyag){
+    
+  this->anyag = anyag;
+  
+ }
+  
+  
+
+ void toString(){
+    
+  std::cout << "Méret: " << getMeret() << " | Anyag: " << getAnyag() << std::endl;
+  
+ }
+  
+
+};
+
+
+
+class Kanal : public Evoeszkoz{
+  
+  
+ 
+ int melyseg;
+ 
+ 
+  
+ public:
+  
+ Kanal(int meret, string anyag, int melyseg) : Evoeszkoz(meret, anyag){
+    
+  this->melyseg = melyseg;
+  
+ }
+  
+  
+
+ int getMelyseg(){
+    
+  return melyseg;
+  
+ }
+  
+  
+
+ void setMelyseg(int melyseg){
+    
+  this->melyseg = melyseg;
+  
+ }
+  
+  
+ 
+ void toString(){
+    
+  std::cout << "Méret: " << getMeret() << " | Anyag: " << getAnyag() << " | Mélység: " << getMelyseg() << std::endl;
+  
+ }
+  
+
+};
+
+
+
+int main()
+{
+  
+ Evoeszkoz e(10, "fém");
+  
+ e.toString();
+  
+ Kanal k(15, "vas", 1);
+  
+ k.toString();
+
+  
+
+ return 0;
+
+}
+
+- Eredmény:
+Méret: 10 | Anyag: fém                                                                                                                                              
+Méret: 15 | Anyag: vas | Mélység: 1
+
