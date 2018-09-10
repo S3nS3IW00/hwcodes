@@ -20,8 +20,18 @@ void piramis(int szam){
   }
 }
 
+int recsum(int szamig){
+    if(szamig == 1){
+        return 1;
+    } else {
+        return recsum(szamig-1)+szamig;
+    }
+}
+
 int main()
 {
     piramis(3);
+    std::cout << std::endl;
+    std::cout << recsum(3) << std::endl;
     return 0;
 }
