@@ -16,9 +16,7 @@ void piramis(int szam){
     for (int j = 1; j < i+1; j++) {
       std::cout << j << (j == i ? "" : "+");
     }
-    std::cout << "=";
-    std::cout << sum(i);
-    std::cout << std::endl;
+    std::cout << "=" << sum(i) << std::endl;
   }
 }
 
