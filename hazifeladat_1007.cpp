@@ -35,8 +35,8 @@ void teljesPiramis(int darab, int meret){
     }
 }
 
-bool duplazzMeg(int szam){
-    szam = szam*2;
+bool duplazzMeg(int& szam){
+    szam*=2;
     return true;
 }
 
