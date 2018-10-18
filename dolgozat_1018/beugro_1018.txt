@@ -1,0 +1,2 @@
+* int tomb[meret]; ahol int a tömb értékeinek a típusa, tomb a tömb neve és meret a tömb mérete. Tömbméretet definiálhatunk is a '#define TOMBMERET meret' kóddal, ahol a TOMBMERET a definiált érték neve és a meret a megadott érték.
+* void fuggveny(int valami){ //függvény teste }, ahol a void a függvény visszatérési értéke, a fuggveny a függvény neve, a zárójelen belül a paraméterlista.
