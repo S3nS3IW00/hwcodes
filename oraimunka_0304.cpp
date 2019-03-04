@@ -23,7 +23,7 @@ public:
 	}
 
 	int getDistance(int i) {
-		return name[i];
+		return distances[i];
 	}
 
 	double averageDistance() {
